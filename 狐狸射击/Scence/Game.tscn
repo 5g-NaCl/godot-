@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://c03g45jfvgenl"]
+
+[ext_resource type="Texture2D" uid="uid://duk44h0g4xr4g" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_vppcw"]
+[ext_resource type="PackedScene" uid="uid://brmouujkcoc45" path="res://Scence/player.tscn" id="2_c4qgs"]
+[ext_resource type="PackedScene" uid="uid://brhj561wkvwwr" path="res://Scence/Slimer.tscn" id="3_iu46v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c4qgs"]
+distance = 13.774445
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iu46v"]
+distance = -235.24252
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_im6b1"]
+distance = 13.774445
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-469.49997, 17)
+scale = Vector2(4.0041666, 3.8178573)
+texture = ExtResource("1_vppcw")
+metadata/_edit_lock_ = true
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(476.5, 14)
+scale = Vector2(3.9541664, 3.8428571)
+texture = ExtResource("1_vppcw")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, 12)
+scale = Vector2(4.7625003, 2.364286)
+zoom = Vector2(0.605, 0.605)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_c4qgs")]
+position = Vector2(-659, 298.99997)
+scale = Vector2(4.0041666, 3.8178573)
+move_speed = null
+is_game_over = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-354, 276)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(353, 295)
+shape = SubResource("WorldBoundaryShape2D_c4qgs")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-676, -80.00003)
+rotation = 1.5816472
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(353, 295)
+shape = SubResource("WorldBoundaryShape2D_c4qgs")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-356, 980.00006)
+rotation = 3.1505933
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-347.91843, 566.15436)
+shape = SubResource("WorldBoundaryShape2D_iu46v")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(821, 452)
+rotation = -1.5707964
+scale = Vector2(1.2789617, 0.4486726)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(353, 295)
+shape = SubResource("WorldBoundaryShape2D_im6b1")
+
+[node name="slimer" parent="." instance=ExtResource("3_iu46v")]
+position = Vector2(750, 316)

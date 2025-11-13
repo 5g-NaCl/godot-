@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://brhj561wkvwwr"]
+
+[ext_resource type="Script" uid="uid://wrsw8e54c4vm" path="res://Scence/slimer.gd" id="1_bw32v"]
+[ext_resource type="Texture2D" uid="uid://c4ltj4eqy4af6" path="res://AssetBundle/Sprites/Slimer.png" id="1_fymor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw32v"]
+atlas = ExtResource("1_fymor")
+region = Rect2(0, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m11ad"]
+atlas = ExtResource("1_fymor")
+region = Rect2(41, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kejgq"]
+atlas = ExtResource("1_fymor")
+region = Rect2(82, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1ta4"]
+atlas = ExtResource("1_fymor")
+region = Rect2(123, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm5lt"]
+atlas = ExtResource("1_fymor")
+region = Rect2(164, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy06q"]
+atlas = ExtResource("1_fymor")
+region = Rect2(205, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc3r5"]
+atlas = ExtResource("1_fymor")
+region = Rect2(246, 0, 41, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tne2b"]
+atlas = ExtResource("1_fymor")
+region = Rect2(287, 0, 41, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exnum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw32v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m11ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kejgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1ta4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm5lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy06q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc3r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tne2b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfs6e"]
+radius = 55.7315
+
+[node name="Slimer" type="Area2D"]
+script = ExtResource("1_bw32v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-64.75, -59.000004)
+scale = Vector2(4.1585364, 4.157895)
+sprite_frames = SubResource("SpriteFrames_exnum")
+autoplay = "default"
+frame_progress = 0.95423627
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-61, -19)
+shape = SubResource("CircleShape2D_nfs6e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
